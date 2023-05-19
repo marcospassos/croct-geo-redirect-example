@@ -51,7 +51,7 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
     }).catch(() => ({country: null, stateCode: null}));
 
     if (country?.toLowerCase() === 'br' && stateCode !== null) {
-        return NextResponse.redirect(new URL(`https://www.usezapay.com.br/detran/${stateCode.toLowerCase()}`));
+        return NextResponse.redirect(`https://www.usezapay.com.br/detran/${stateCode.toLowerCase()}`);
     }
 
     return response;
