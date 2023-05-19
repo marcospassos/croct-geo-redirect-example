@@ -51,7 +51,6 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
     }).catch(() => ({country: null, stateCode: null}));
 
     if (country?.toLowerCase() === 'br' && stateCode !== null) {
-        // redirect to the localized version of the page
         return NextResponse.redirect(new URL(`https://www.usezapay.com.br/detran/${stateCode.toLowerCase()}`));
     }
 
